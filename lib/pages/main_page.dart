@@ -38,17 +38,18 @@ class RulerCard extends StatelessWidget {
       child: ListTile(
         title: Text('Official/标题'),
         subtitle: Text('info hkluhklhluhliuh'),
-        trailing:  IconButton(
-            // like
-            // icon: Icon(Icons.favorite_rounded),
-            // color: Colors.pink[400],
-            // dislike
-            icon:Icon(Icons.favorite_outline_rounded),
-            // color: Color.,
-            onPressed: () {},
-          ),
+        trailing: IconButton(
+          // like
+          // icon: Icon(Icons.favorite_rounded),
+          // color: Colors.pink[400],
+          // dislike
+          icon: Icon(Icons.favorite_outline_rounded),
+          onPressed: () {
+          },
+        ),
         onTap: () {},
       ),
     );
   }
 }
+
