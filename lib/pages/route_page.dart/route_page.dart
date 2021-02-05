@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class RoutePage extends StatelessWidget {
-  const RoutePage({Key key}) : super(key: key);
+  final String _path = Get.arguments;
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +11,7 @@ class RoutePage extends StatelessWidget {
         title: Text('Route'),
       ),
       body: Center(
-        child: Text('FILES'),
+        child: Text(_path),
       ),
     );
   }

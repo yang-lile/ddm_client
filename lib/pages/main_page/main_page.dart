@@ -1,6 +1,7 @@
 import 'package:ddm_client/pages/main_page/bottom_app_bar_item.dart';
 import 'package:ddm_client/pages/main_page/rulers_list.dart';
 import 'package:ddm_client/pages/main_page/store_list.dart';
+import 'package:ddm_client/route/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'page_state_controller.dart';
@@ -22,6 +23,13 @@ class MainPage extends StatelessWidget {
           StoreList(),
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.folder),
+        onPressed: () {
+          Get.toNamed(Routes.ROUTEPAGE, arguments: "path");
+        },
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
         shape: CircularNotchedRectangle(),
         child: Row(
