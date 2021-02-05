@@ -1,33 +1,5 @@
 import 'package:flutter/material.dart';
 
-class MainPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('主页'),
-      ),
-      body: DataManager(),
-    );
-  }
-}
-
-class DataManager extends StatelessWidget {
-  const DataManager({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: 5,
-      itemBuilder: (context, index) {
-        return RulerCard();
-      },
-    );
-  }
-}
-
 class RulerCard extends StatelessWidget {
   const RulerCard({Key key}) : super(key: key);
 
@@ -44,12 +16,10 @@ class RulerCard extends StatelessWidget {
           // color: Colors.pink[400],
           // dislike
           icon: Icon(Icons.favorite_outline_rounded),
-          onPressed: () {
-          },
+          onPressed: () {},
         ),
         onTap: () {},
       ),
     );
   }
 }
-
