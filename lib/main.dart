@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:ddm_client/pages/main_page/main_page.dart';
+import 'package:ddm_client/route/app_pages.dart';
 import 'package:ddm_client/translation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -17,10 +17,8 @@ void main() {
       locale: Locale('zh', 'CN'),
       fallbackLocale: Locale('en', 'US'),
       title: 'DDM'.tr,
-      initialRoute: '/',
-      getPages: [
-        GetPage(name: '/', page: () => MainPage()),
-      ],
+      initialRoute: Routes.HOME,
+      getPages: AppPages.pages,
     ),
   );
 }
