@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.lilua.ddm_client">
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
    <application
         android:label="ddm_client"
         android:icon="@mipmap/ic_launcher">
