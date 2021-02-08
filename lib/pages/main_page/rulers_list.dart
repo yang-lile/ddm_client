@@ -11,7 +11,10 @@ class RulersList extends StatelessWidget {
     return ListView.builder(
       itemCount: 5,
       itemBuilder: (context, index) {
-        return RulerCard();
+        return Dismissible(
+          key: null,
+          child: RulerCard(),
+        );
       },
     );
   }
