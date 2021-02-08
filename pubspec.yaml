@@ -27,7 +27,8 @@ dependencies:
   get: ^3.24.0
   hive: ^1.4.4+1
   hive_flutter: ^0.3.1
-  path_provider: ^1.6.16    # ^1.6.27 has bug
+  path_provider: ^1.6.16
+  permission_handler: ^5.1.0+2
 
 dev_dependencies:
   flutter_test:

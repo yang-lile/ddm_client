@@ -1,17 +1,11 @@
-import 'dart:io';
-
+import 'package:ddm_client/pages/route_page.dart/route_path_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:path_provider/path_provider.dart' as path_provider;
 
 class RoutePage extends StatelessWidget {
-  final String _path = Get.arguments;
-
   @override
   Widget build(BuildContext context) {
-    final sdCardDir =
-        path_provider.getExternalStorageDirectories();
-        sdCardDir.then((value) => debugPrint("##### ${value[0].path}"));
+    // Permission get
     return Scaffold(
       appBar: AppBar(
         title: PopupMenuButton(
@@ -32,41 +26,45 @@ class RoutePage extends StatelessWidget {
               ),
             ];
           },
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                '文件夹名',
-                style: Get.textTheme.subtitle1,
-              ),
-              Text(
-                '文件数',
-                style: Get.textTheme.subtitle2,
-                // subTitleStyle(),
-              ),
-            ],
+          child: SizedBox(
+            width: 200.0,
+            child: Row(
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      '文件夹名',
+                      style: Get.textTheme.subtitle1,
+                    ),
+                    Text(
+                      '文件数',
+                      style: subTitleStyle(),
+                    ),
+                  ],
+                ),
+                Icon(Icons.arrow_drop_down_rounded),
+              ],
+            ),
           ),
         ),
       ),
-      // body: FutureBuilder(
-      //   future: sdCardDir,
-      //   builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
-      //     if (snapshot.connectionState == ConnectionState.done) {
-      //       final List<FileSystemEntity> files = snapshot.data.listSync();
-      //       // debugPrint(files);
-      //       return ListView.builder(
-      //         itemCount: files.length,
-      //         itemBuilder: (BuildContext context, int index) {
-      //           return ListTile(
-      //             title: Text(files[index].path),
-      //           );
-      //         },
-      //       );
-      //     } else {
-      //       return LinearProgressIndicator();
-      //     }
-      //   },
-      // ),
+      body: GetBuilder<RoutePathController>(
+        init: RoutePathController(),
+        builder: (routePathController) {
+          var directory = routePathController.directory;
+          var filesList = directory.listSync(followLinks: true);
+          print(filesList);
+          return ListView.builder(
+            // itemCount: filesList.length,
+            itemBuilder: (context, index) {
+              return ListTile(
+                  // title: Text(filesList[index].path),
+                  );
+            },
+          );
+        },
+      ),
     );
   }
 
