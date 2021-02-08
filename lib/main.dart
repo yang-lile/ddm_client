@@ -27,8 +27,11 @@ Future<void> main() async {
 }
 
 Future<void> initMain() async {
-  await [Permission.storage].request();
-  
+  PermissionStatus status = await Permission.storage.status;
+  if (!status.isGranted) {
+    await Permission.storage.request();
+  }
+
   // prepare database and file manager
   final Directory appDocumentDir =
       await path_provider.getApplicationDocumentsDirectory();
@@ -42,5 +45,4 @@ Future<void> initMain() async {
   }
   // to save rulers
   Hive.openBox('rulers');
-  
 }
