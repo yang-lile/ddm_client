@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:ddm_client/pages/route_page.dart/route_path_controller.dart';
+import 'package:ddm_client/pages/route_page/route_path_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

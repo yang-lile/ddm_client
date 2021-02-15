@@ -35,8 +35,8 @@ Future<void> initMain() async {
   // prepare database and file manager
   final Directory appDocumentDir =
       await path_provider.getApplicationDocumentsDirectory();
-  final Directory exterStorageDir =
-      await path_provider.getExternalStorageDirectory();
+  // final Directory exterStorageDir =
+  //     await path_provider.getExternalStorageDirectory();
   await Hive.initFlutter(appDocumentDir.path);
   // to save user data
   final appData = await Hive.openBox('app_data');
