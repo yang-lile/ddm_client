@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package rulers;
+
+service DDM{
+  // get all rulers
+  rpc getRulers(Empty) returns (stream Ruler) {}
+
+  // get ruler likes 
+  rpc getStars(RulerId) returns (Stars) {}
+
+  // get path data
+  rpc getPath(RulerId) returns (stream PathData) {}
+}
+
+message Empty{}
+
+// meta data to save any class-enum
+enum MetaData{
+  DEFAULT = 0;
+  // Note
+  TITLE = 1;// title
+  TEXT = 2;// text
+  TIME = 3;// time
+  MESSAGE = 4;// sort text
+  // Path
+  PATH = 5;
+  // Picture
+  IMAGE = 6;
+  // passord note
+  SIGNLE_TEXT = 7;// (single line)
+  PASS_WORD = 8;
+}
+
+message RulerId {
+  string source = 1;
+  string ruleName = 2;
+}
+
+message Ruler{
+  // base data
+  RulerId rulerId = 1;
+  string instruction = 2;
+  repeated string scenesUsed = 3;
+  // compose
+  repeated MetaData metaData = 4;
+}
+
+message Stars {
+  int32 starNumber = 1;
+}
+
+message PathData {
+  string path = 1;
+}
