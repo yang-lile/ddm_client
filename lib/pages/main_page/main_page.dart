@@ -15,6 +15,7 @@ class MainPage extends StatelessWidget {
         title: pageState2Widget(),
       ),
       body: PageView(
+        physics: BouncingScrollPhysics(),
         controller: pageController,
         onPageChanged: (index) => Get.find<PageStateController>().pageState =
             index == 0 ? FuntionPages.Home : FuntionPages.Store,

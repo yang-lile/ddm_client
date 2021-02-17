@@ -1,3 +1,4 @@
+import 'package:ddm_client/generated/meta_data/meta_data.pb.dart';
 import 'package:ddm_client/pages/main_page/ruler_card.dart';
 import 'package:flutter/material.dart';
 
@@ -11,10 +12,7 @@ class RulersList extends StatelessWidget {
     return ListView.builder(
       itemCount: 5,
       itemBuilder: (context, index) {
-        return Dismissible(
-          key: null,
-          child: RulerCard(),
-        );
+        return RulerCard(ruler: Ruler(),);
       },
     );
   }
