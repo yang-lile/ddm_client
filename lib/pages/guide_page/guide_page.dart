@@ -27,10 +27,7 @@ class GuidePage extends StatelessWidget {
 }
 
 Future<void> initMain() async {
-  PermissionStatus status = await Permission.storage.status;
-  if (!status.isGranted) {
-    await Permission.storage.request();
-  }
+
 
   // prepare database and file manager
   StaticConstPool.appDocumentDir =
