@@ -1,3 +1,4 @@
+import 'package:ddm_client/pages/guide_page/guide_page.dart';
 import 'package:ddm_client/pages/main_page/main_page.dart';
 import 'package:ddm_client/pages/route_page/route_page.dart';
 import 'package:get/get.dart';
@@ -6,6 +7,7 @@ part './app_routes.dart';
 abstract class AppPages {
   static final pages = [
     GetPage(name: Routes.HOME, page:()=> MainPage(),),
-    GetPage(name: Routes.ROUTEPAGE, page:()=> RoutePage()),
+    GetPage(name: Routes.ROUTE, page:()=> RoutePage()),
+    GetPage(name: Routes.GUIDE, page:()=> GuidePage()),
   ];
 }

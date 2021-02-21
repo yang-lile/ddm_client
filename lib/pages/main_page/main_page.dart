@@ -27,7 +27,7 @@ class MainPage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.folder),
         onPressed: () {
-          Get.toNamed(Routes.ROUTEPAGE, arguments: "path");
+          Get.toNamed(Routes.ROUTE, arguments: "path");
         },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
