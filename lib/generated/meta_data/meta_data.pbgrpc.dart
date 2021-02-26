@@ -26,6 +26,10 @@ class DDMClient extends $grpc.Client {
       '/rulers.DDM/getPath',
       ($0.RulerId value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.PathData.fromBuffer(value));
+  static final _$getVersion = $grpc.ClientMethod<$0.Version, $0.NeedUpdate>(
+      '/rulers.DDM/getVersion',
+      ($0.Version value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.NeedUpdate.fromBuffer(value));
 
   DDMClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -49,6 +53,11 @@ class DDMClient extends $grpc.Client {
     return $createStreamingCall(
         _$getPath, $async.Stream.fromIterable([request]),
         options: options);
+  }
+
+  $grpc.ResponseFuture<$0.NeedUpdate> getVersion($0.Version request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getVersion, request, options: options);
   }
 }
 
@@ -77,6 +86,13 @@ abstract class DDMServiceBase extends $grpc.Service {
         true,
         ($core.List<$core.int> value) => $0.RulerId.fromBuffer(value),
         ($0.PathData value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.Version, $0.NeedUpdate>(
+        'getVersion',
+        getVersion_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.Version.fromBuffer(value),
+        ($0.NeedUpdate value) => value.writeToBuffer()));
   }
 
   $async.Stream<$0.Ruler> getRulers_Pre(
@@ -94,8 +110,15 @@ abstract class DDMServiceBase extends $grpc.Service {
     yield* getPath(call, await request);
   }
 
+  $async.Future<$0.NeedUpdate> getVersion_Pre(
+      $grpc.ServiceCall call, $async.Future<$0.Version> request) async {
+    return getVersion(call, await request);
+  }
+
   $async.Stream<$0.Ruler> getRulers($grpc.ServiceCall call, $0.Empty request);
   $async.Future<$0.Stars> getStars($grpc.ServiceCall call, $0.RulerId request);
   $async.Stream<$0.PathData> getPath(
       $grpc.ServiceCall call, $0.RulerId request);
+  $async.Future<$0.NeedUpdate> getVersion(
+      $grpc.ServiceCall call, $0.Version request);
 }

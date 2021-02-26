@@ -276,3 +276,97 @@ class PathData extends $pb.GeneratedMessage {
   void clearPath() => clearField(1);
 }
 
+class Version extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Version', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'rulers'), createEmptyInstance: create)
+    ..a<$core.int>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'version', $pb.PbFieldType.O3)
+    ..hasRequiredFields = false
+  ;
+
+  Version._() : super();
+  factory Version({
+    $core.int? version,
+  }) {
+    final _result = create();
+    if (version != null) {
+      _result.version = version;
+    }
+    return _result;
+  }
+  factory Version.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory Version.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  Version clone() => Version()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  Version copyWith(void Function(Version) updates) => super.copyWith((message) => updates(message as Version)) as Version; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static Version create() => Version._();
+  Version createEmptyInstance() => create();
+  static $pb.PbList<Version> createRepeated() => $pb.PbList<Version>();
+  @$core.pragma('dart2js:noInline')
+  static Version getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Version>(create);
+  static Version? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.int get version => $_getIZ(0);
+  @$pb.TagNumber(1)
+  set version($core.int v) { $_setSignedInt32(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasVersion() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearVersion() => clearField(1);
+}
+
+class NeedUpdate extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'NeedUpdate', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'rulers'), createEmptyInstance: create)
+    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'needUpdate', protoName: 'needUpdate')
+    ..hasRequiredFields = false
+  ;
+
+  NeedUpdate._() : super();
+  factory NeedUpdate({
+    $core.bool? needUpdate,
+  }) {
+    final _result = create();
+    if (needUpdate != null) {
+      _result.needUpdate = needUpdate;
+    }
+    return _result;
+  }
+  factory NeedUpdate.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory NeedUpdate.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  NeedUpdate clone() => NeedUpdate()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  NeedUpdate copyWith(void Function(NeedUpdate) updates) => super.copyWith((message) => updates(message as NeedUpdate)) as NeedUpdate; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static NeedUpdate create() => NeedUpdate._();
+  NeedUpdate createEmptyInstance() => create();
+  static $pb.PbList<NeedUpdate> createRepeated() => $pb.PbList<NeedUpdate>();
+  @$core.pragma('dart2js:noInline')
+  static NeedUpdate getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<NeedUpdate>(create);
+  static NeedUpdate? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get needUpdate => $_getBF(0);
+  @$pb.TagNumber(1)
+  set needUpdate($core.bool v) { $_setBool(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasNeedUpdate() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearNeedUpdate() => clearField(1);
+}
+

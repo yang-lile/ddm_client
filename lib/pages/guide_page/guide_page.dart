@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:grpc/grpc.dart' as grpc;
 import 'package:hive/hive.dart';
-import 'package:permission_handler/permission_handler.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -18,7 +17,7 @@ class GuidePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // delayed for get data from web
-    Future.delayed(Duration(seconds: 3), () => Get.offAllNamed(Routes.HOME));
+    Future.delayed(Duration(seconds: 1), () => Get.offAllNamed(Routes.HOME));
 
     return ColoredBox(
       color: Colors.blue,
@@ -27,8 +26,6 @@ class GuidePage extends StatelessWidget {
 }
 
 Future<void> initMain() async {
-
-
   // prepare database and file manager
   StaticConstPool.appDocumentDir =
       await path_provider.getApplicationDocumentsDirectory();

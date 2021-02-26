@@ -17,7 +17,7 @@ class MetaData extends $pb.ProtobufEnum {
   static const MetaData MESSAGE = MetaData._(4, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'MESSAGE');
   static const MetaData PATH = MetaData._(5, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'PATH');
   static const MetaData IMAGE = MetaData._(6, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'IMAGE');
-  static const MetaData SIGNLE_TEXT = MetaData._(7, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'SIGNLE_TEXT');
+  static const MetaData SINGLE_TEXT = MetaData._(7, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'SINGLE_TEXT');
   static const MetaData PASS_WORD = MetaData._(8, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'PASS_WORD');
 
   static const $core.List<MetaData> values = <MetaData> [
@@ -28,7 +28,7 @@ class MetaData extends $pb.ProtobufEnum {
     MESSAGE,
     PATH,
     IMAGE,
-    SIGNLE_TEXT,
+    SINGLE_TEXT,
     PASS_WORD,
   ];
 
