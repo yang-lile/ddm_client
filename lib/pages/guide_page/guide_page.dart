@@ -1,12 +1,12 @@
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:ddm_client/generated/meta_data/meta_data.pbgrpc.dart';
-import 'package:ddm_client/ip_data.dart';
+import 'package:ddm_client/grpc_stub.dart';
 import 'package:ddm_client/route/app_pages.dart';
 import 'package:ddm_client/static_const_pool.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:grpc/grpc.dart' as grpc;
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
 import 'package:hive_flutter/hive_flutter.dart';
@@ -18,9 +18,16 @@ class GuidePage extends StatelessWidget {
   Widget build(BuildContext context) {
     // delayed for get data from web
     Future.delayed(Duration(seconds: 1), () => Get.offAllNamed(Routes.HOME));
+    initMain().then((value) => firstOpen());
 
     return ColoredBox(
       color: Colors.blue,
+      child: Center(
+        child: Text(
+          "DDM",
+          style: Get.textTheme.headline1,
+        ),
+      ),
     );
   }
 }
@@ -32,7 +39,7 @@ Future<void> initMain() async {
   await Hive.initFlutter(StaticConstPool.appDocumentDir.path);
 }
 
-Future<void> firstOpen() async {
+Future firstOpen() async {
   if (File(
     "${StaticConstPool.appDocumentDir.path}/app_data.hive",
   ).existsSync()) {
@@ -42,23 +49,15 @@ Future<void> firstOpen() async {
       appData.put('user_root_path', '/storage/emulated/0');
     }
   } else {}
+  Hive.openBox<Uint8List>('user_rulers');
   await getDataFromServer().toList();
 }
 
 Stream<void> getDataFromServer() async* {
-  final channel = grpc.ClientChannel(
-    IpData.host,
-    port: IpData.port,
-    options: const grpc.ChannelOptions(
-      credentials: grpc.ChannelCredentials.insecure(),
-    ),
-  );
-  final stub = DDMClient(
-    channel,
-    options: grpc.CallOptions(timeout: Duration(seconds: 30)),
-  );
+  final stub = GrpcStub.instance.stub;
   var rulers = stub.getRulers(Empty());
-  final rulersBox = await Hive.openBox('rulers');
+  final rulersBox = await Hive.openBox<Uint8List>('rulers');
+  rulersBox.clear();
   await for (var item in rulers) {
     rulersBox.add(item.writeToBuffer());
   }

@@ -5,4 +5,5 @@ abstract class Routes {
   static const HOME = '/home';
   static const ROUTE = '/route';
   static const GUIDE = '/guide';
+  static const RULER = '/ruler';
 }
