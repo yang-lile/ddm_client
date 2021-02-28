@@ -2,7 +2,9 @@ import 'dart:typed_data';
 
 import 'package:ddm_client/generated/meta_data/meta_data.pb.dart';
 import 'package:ddm_client/pages/main_page/page_state_controller.dart';
+import 'package:ddm_client/route/app_pages.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 
 class RulerCard extends StatelessWidget {
@@ -92,7 +94,14 @@ class RulerCard extends StatelessWidget {
                 onPressed: () => addRuler(context),
               ),
         onTap: () {
-          // open a window to show message
+          if (pageState == FuntionPages.Home) {
+            Get.toNamed(
+              Routes.RULER,
+              arguments: ruler,
+            );
+          } else {
+            // open a window to show message
+          }
         },
       ),
     );
