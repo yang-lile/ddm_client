@@ -13,16 +13,28 @@ class RulerPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final MyMeta.Ruler ruler = Get.arguments;
-    var widget = Get.find<RulerPageController>().editState == EditState.Edit
-        ? getEditWidget(ruler)
-        : getShowWidget(ruler);
-
+    Get.put(ControController());
     return Scaffold(
       appBar: AppBar(
         title: Text("${ruler.rulerId.source}/${ruler.rulerId.ruleName}"),
       ),
-      body: ListView(
-        children: widget,
+      body: GetBuilder(
+        init: RulerPageController(),
+        builder: (GetxController controller) {
+          var widget =
+              Get.find<RulerPageController>().editState == EditState.Edit
+                  ? getEditWidget(ruler)
+                  : getShowWidget(ruler);
+          return ListView(
+            children: widget,
+          );
+        },
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.autorenew_rounded),
+        onPressed: () {
+          Get.find<RulerPageController>().cut();
+        },
       ),
     );
   }

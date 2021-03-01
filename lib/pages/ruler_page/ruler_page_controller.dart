@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:get/get.dart';
 
 enum EditState {
@@ -13,5 +15,12 @@ class RulerPageController extends GetxController {
     update();
   }
 
-  get editState => this._editState;
+  EditState get editState => this._editState;
+
+  void cut() {
+    this._editState == EditState.Edit
+        ? this._editState = EditState.Show
+        : this._editState = EditState.Edit;
+    update();
+  }
 }

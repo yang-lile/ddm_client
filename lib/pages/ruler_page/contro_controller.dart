@@ -11,4 +11,12 @@ class ControController extends GetxController {
   void delController(int index) {
     this._controllers.removeAt(index);
   }
+
+  @override
+  void dispose() {
+    for (var item in this._controllers) {
+      item.dispose();
+    }
+    super.dispose();
+  }
 }
