@@ -25,8 +25,12 @@ class RulerPage extends StatelessWidget {
               Get.find<RulerPageController>().editState == EditState.Edit
                   ? getEditWidget(ruler)
                   : getShowWidget(ruler);
-          return ListView(
-            children: widget,
+          return ListView.builder(
+            itemCount: widget.length,
+            itemBuilder: (context, index) => Padding(
+              padding: EdgeInsets.all(8.0),
+              child: widget[index],
+            ),
           );
         },
       ),

@@ -8,7 +8,7 @@ enum EditState {
 }
 
 class RulerPageController extends GetxController {
-  var _editState = EditState.Edit;
+  var _editState = EditState.Show;
 
   set editState(value) {
     this._editState = value;
