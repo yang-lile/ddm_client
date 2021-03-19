@@ -107,8 +107,9 @@ class Ruler extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Ruler', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'rulers'), createEmptyInstance: create)
     ..aOM<RulerId>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'rulerId', protoName: 'rulerId', subBuilder: RulerId.create)
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'instruction')
-    ..pPS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'scenesUsed', protoName: 'scenesUsed')
-    ..pc<MetaData>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'metaData', $pb.PbFieldType.PE, protoName: 'metaData', valueOf: MetaData.valueOf, enumValues: MetaData.values)
+    ..pPS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'defaultValues', protoName: 'defaultValues')
+    ..pPS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'scenesUsed', protoName: 'scenesUsed')
+    ..pc<MetaData>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'metaData', $pb.PbFieldType.PE, protoName: 'metaData', valueOf: MetaData.valueOf, enumValues: MetaData.values)
     ..hasRequiredFields = false
   ;
 
@@ -116,6 +117,7 @@ class Ruler extends $pb.GeneratedMessage {
   factory Ruler({
     RulerId? rulerId,
     $core.String? instruction,
+    $core.Iterable<$core.String>? defaultValues,
     $core.Iterable<$core.String>? scenesUsed,
     $core.Iterable<MetaData>? metaData,
   }) {
@@ -125,6 +127,9 @@ class Ruler extends $pb.GeneratedMessage {
     }
     if (instruction != null) {
       _result.instruction = instruction;
+    }
+    if (defaultValues != null) {
+      _result.defaultValues.addAll(defaultValues);
     }
     if (scenesUsed != null) {
       _result.scenesUsed.addAll(scenesUsed);
@@ -176,10 +181,13 @@ class Ruler extends $pb.GeneratedMessage {
   void clearInstruction() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.List<$core.String> get scenesUsed => $_getList(2);
+  $core.List<$core.String> get defaultValues => $_getList(2);
 
   @$pb.TagNumber(4)
-  $core.List<MetaData> get metaData => $_getList(3);
+  $core.List<$core.String> get scenesUsed => $_getList(3);
+
+  @$pb.TagNumber(5)
+  $core.List<MetaData> get metaData => $_getList(4);
 }
 
 class Stars extends $pb.GeneratedMessage {

@@ -30,37 +30,36 @@ class GuidePage extends StatelessWidget {
       ),
     );
   }
-}
 
-Future<void> initMain() async {
-  // prepare database and file manager
-  StaticConstPool.appDocumentDir =
-      await path_provider.getApplicationDocumentsDirectory();
-  await Hive.initFlutter(StaticConstPool.appDocumentDir.path);
-}
-
-Future firstOpen() async {
-  if (File(
-    "${StaticConstPool.appDocumentDir.path}/app_data.hive",
-  ).existsSync()) {
-    // to save user data
-    final appData = await Hive.openBox('app_data');
-    if (GetPlatform.isAndroid) {
-      appData.put('user_root_path', '/storage/emulated/0');
-    }
-  } else {}
-  Hive.openBox<Uint8List>('user_rulers');
-  await getDataFromServer().toList();
-}
-
-Stream<void> getDataFromServer() async* {
-  final stub = GrpcStub.instance.stub;
-  var rulers = stub.getRulers(Empty());
-  final rulersBox = await Hive.openBox<Uint8List>('rulers');
-  rulersBox.clear();
-  await for (var item in rulers) {
-    rulersBox.add(item.writeToBuffer());
+  Future<void> initMain() async {
+    // prepare database and file manager
+    StaticConstPool.appDocumentDir =
+        await path_provider.getApplicationDocumentsDirectory();
+    await Hive.initFlutter(StaticConstPool.appDocumentDir.path);
   }
 
-  return;
+  Future firstOpen() async {
+    if (File(
+      "${StaticConstPool.appDocumentDir.path}/app_data.hive",
+    ).existsSync()) {
+      // to save user data
+      final appData = await Hive.openBox('app_data');
+      if (GetPlatform.isAndroid) {
+        appData.put('user_root_path', '/storage/emulated/0');
+      }
+    } else {}
+    Hive.openBox<Uint8List>('user_rulers');
+    await getDataFromServer().toList();
+  }
+
+  Stream<void> getDataFromServer() async* {
+    final stub = GrpcStub.instance.stub;
+    var rulers = stub.getRulers(Empty());
+    final rulersBox = await Hive.openBox<Uint8List>('rulers');
+    rulersBox.clear();
+    await for (var item in rulers) {
+      rulersBox.add(item.writeToBuffer());
+    }
+    return;
+  }
 }

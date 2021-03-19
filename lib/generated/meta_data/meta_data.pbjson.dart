@@ -13,19 +13,17 @@ const MetaData$json = const {
   '1': 'MetaData',
   '2': const [
     const {'1': 'DEFAULT', '2': 0},
-    const {'1': 'TITLE', '2': 1},
-    const {'1': 'TEXT', '2': 2},
+    const {'1': 'TEXT', '2': 1},
+    const {'1': 'PASS_WORD', '2': 2},
     const {'1': 'TIME', '2': 3},
-    const {'1': 'MESSAGE', '2': 4},
-    const {'1': 'PATH', '2': 5},
-    const {'1': 'IMAGE', '2': 6},
-    const {'1': 'SINGLE_TEXT', '2': 7},
-    const {'1': 'PASS_WORD', '2': 8},
+    const {'1': 'ADDRESS', '2': 4},
+    const {'1': 'FILE', '2': 5},
+    const {'1': 'PERIOD', '2': 6},
   ],
 };
 
 /// Descriptor for `MetaData`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List metaDataDescriptor = $convert.base64Decode('CghNZXRhRGF0YRILCgdERUZBVUxUEAASCQoFVElUTEUQARIICgRURVhUEAISCAoEVElNRRADEgsKB01FU1NBR0UQBBIICgRQQVRIEAUSCQoFSU1BR0UQBhIPCgtTSU5HTEVfVEVYVBAHEg0KCVBBU1NfV09SRBAI');
+final $typed_data.Uint8List metaDataDescriptor = $convert.base64Decode('CghNZXRhRGF0YRILCgdERUZBVUxUEAASCAoEVEVYVBABEg0KCVBBU1NfV09SRBACEggKBFRJTUUQAxILCgdBRERSRVNTEAQSCAoERklMRRAFEgoKBlBFUklPRBAG');
 @$core.Deprecated('Use emptyDescriptor instead')
 const Empty$json = const {
   '1': 'Empty',
@@ -50,13 +48,14 @@ const Ruler$json = const {
   '2': const [
     const {'1': 'rulerId', '3': 1, '4': 1, '5': 11, '6': '.rulers.RulerId', '10': 'rulerId'},
     const {'1': 'instruction', '3': 2, '4': 1, '5': 9, '10': 'instruction'},
-    const {'1': 'scenesUsed', '3': 3, '4': 3, '5': 9, '10': 'scenesUsed'},
-    const {'1': 'metaData', '3': 4, '4': 3, '5': 14, '6': '.rulers.MetaData', '10': 'metaData'},
+    const {'1': 'defaultValues', '3': 3, '4': 3, '5': 9, '10': 'defaultValues'},
+    const {'1': 'scenesUsed', '3': 4, '4': 3, '5': 9, '10': 'scenesUsed'},
+    const {'1': 'metaData', '3': 5, '4': 3, '5': 14, '6': '.rulers.MetaData', '10': 'metaData'},
   ],
 };
 
 /// Descriptor for `Ruler`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List rulerDescriptor = $convert.base64Decode('CgVSdWxlchIpCgdydWxlcklkGAEgASgLMg8ucnVsZXJzLlJ1bGVySWRSB3J1bGVySWQSIAoLaW5zdHJ1Y3Rpb24YAiABKAlSC2luc3RydWN0aW9uEh4KCnNjZW5lc1VzZWQYAyADKAlSCnNjZW5lc1VzZWQSLAoIbWV0YURhdGEYBCADKA4yEC5ydWxlcnMuTWV0YURhdGFSCG1ldGFEYXRh');
+final $typed_data.Uint8List rulerDescriptor = $convert.base64Decode('CgVSdWxlchIpCgdydWxlcklkGAEgASgLMg8ucnVsZXJzLlJ1bGVySWRSB3J1bGVySWQSIAoLaW5zdHJ1Y3Rpb24YAiABKAlSC2luc3RydWN0aW9uEiQKDWRlZmF1bHRWYWx1ZXMYAyADKAlSDWRlZmF1bHRWYWx1ZXMSHgoKc2NlbmVzVXNlZBgEIAMoCVIKc2NlbmVzVXNlZBIsCghtZXRhRGF0YRgFIAMoDjIQLnJ1bGVycy5NZXRhRGF0YVIIbWV0YURhdGE=');
 @$core.Deprecated('Use starsDescriptor instead')
 const Stars$json = const {
   '1': 'Stars',

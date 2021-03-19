@@ -1,7 +1,5 @@
 import 'package:ddm_client/generated/meta_data/meta_data.pbgrpc.dart' as MyMeta;
 import 'package:ddm_client/pages/ruler_page/contro_controller.dart';
-import 'package:ddm_client/pages/ruler_page/ruler_page_controller.dart';
-import 'package:ddm_client/pages/ruler_page/time_picker_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -18,145 +16,53 @@ class RulerPage extends StatelessWidget {
       appBar: AppBar(
         title: Text("${ruler.rulerId.source}/${ruler.rulerId.ruleName}"),
       ),
-      body: GetBuilder(
-        init: RulerPageController(),
-        builder: (GetxController controller) {
-          var widget =
-              Get.find<RulerPageController>().editState == EditState.Edit
-                  ? getEditWidget(ruler)
-                  : getShowWidget(ruler);
+      body: Builder(
+        builder: (context) {
+          var widgets = getWidgets(ruler);
           return ListView.builder(
-            itemCount: widget.length,
+            itemCount: widgets.length,
             itemBuilder: (context, index) => Padding(
               padding: EdgeInsets.all(8.0),
-              child: widget[index],
+              child: widgets[index],
             ),
           );
-        },
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.autorenew_rounded),
-        onPressed: () {
-          Get.find<RulerPageController>().cut();
         },
       ),
     );
   }
 
-  List<Widget> getEditWidget(MyMeta.Ruler ruler) {
+  List<Widget> getWidgets(MyMeta.Ruler ruler) {
     List<Widget> mainWidget = [];
-    ControController cc = Get.find<ControController>();
+    printInfo(info: ruler.metaData.toString());
     for (var item in ruler.metaData) {
       switch (item) {
-        case MyMeta.MetaData.TITLE:
-          TextEditingController controller = TextEditingController(text: '标题');
-          mainWidget.add(TextField(
-            controller: controller,
-          ));
-          cc.addController(controller);
-          break;
         case MyMeta.MetaData.TEXT:
-          TextEditingController controller =
-              TextEditingController(text: '大段文字');
-          mainWidget.add(TextField(
-            controller: controller,
-            expands: true,
-          ));
-          cc.addController(controller);
-          break;
-        case MyMeta.MetaData.TIME:
-          TimePickerController controller;
           mainWidget.add(
-            TextButton(
-              onPressed: () async {
-                controller.timeOfDay = await showTimePicker(
-                  context: Get.context,
-                  initialTime: TimeOfDay.now(),
-                );
-              },
-              child: Text('${controller.timeOfDay}'),
+            TextFormField(
+              initialValue: 'Input text',
+              maxLength: 20,
+              decoration: InputDecoration(
+                icon: Icon(Icons.favorite),
+                labelText: 'Label text',
+                labelStyle: TextStyle(
+                  color: Color(0xFF6200EE),
+                ),
+                helperText: 'Helper text',
+                suffixIcon: Icon(
+                  Icons.check_circle,
+                ),
+                enabledBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Color(0xFF6200EE)),
+                ),
+              ),
             ),
           );
-          cc.addController(controller);
-          break;
-        case MyMeta.MetaData.MESSAGE:
-          TextEditingController controller =
-              TextEditingController(text: '提示性语句');
-          mainWidget.add(TextField(
-            controller: controller,
-          ));
-          cc.addController(controller);
-          break;
-        case MyMeta.MetaData.PATH:
-          // path get from file
-          // mainWidget.add();
-          break;
-        case MyMeta.MetaData.IMAGE:
-          // get path from files
-          // mainWidget.add(Image.file(File()));
-          break;
-        case MyMeta.MetaData.SINGLE_TEXT:
-          TextEditingController controller =
-              TextEditingController(text: '单行文字');
-          mainWidget.add(TextField(
-            controller: controller,
-          ));
-          cc.addController(controller);
-          break;
-        case MyMeta.MetaData.PASS_WORD:
-          TextEditingController controller = TextEditingController(
-            text: '密码',
-          );
-          mainWidget.add(TextField(
-            controller: controller,
-          ));
-          cc.addController(controller);
-          break;
-        default:
-      }
-    }
-    return mainWidget;
-  }
-
-  List<Widget> getShowWidget(MyMeta.Ruler ruler) {
-    List<Widget> mainWidget = [];
-    for (var item in ruler.metaData) {
-      switch (item) {
-        case MyMeta.MetaData.TITLE:
-          mainWidget.add(
-            Text(
-              '标题',
-              style: Get.textTheme.headline4,
-            ),
-          );
-          break;
-        case MyMeta.MetaData.TEXT:
-          mainWidget.add(Text('''xxxxx
-xxxxx
-xxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxx'''));
           break;
         case MyMeta.MetaData.TIME:
           mainWidget.add(Text(
             'no time',
             style: Get.textTheme.caption,
           ));
-          break;
-        case MyMeta.MetaData.MESSAGE:
-          mainWidget.add(Text(
-            'no time',
-            style: Get.textTheme.caption,
-          ));
-          break;
-        case MyMeta.MetaData.PATH:
-          // mainWidget.add();
-          break;
-        case MyMeta.MetaData.IMAGE:
-          // mainWidget.add(Image.file(file));
-          break;
-        case MyMeta.MetaData.SINGLE_TEXT:
-          mainWidget.add(Text('单行文字'));
           break;
         case MyMeta.MetaData.PASS_WORD:
           mainWidget.add(Text('xxxxxxx'));
@@ -165,5 +71,29 @@ xxxxxxxxxxxxxxxx'''));
       }
     }
     return mainWidget;
+  }
+}
+
+class MetaComponent extends StatelessWidget {
+  const MetaComponent({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextFormField(
+        initialValue: 'Input text'.tr,
+        decoration: InputDecoration(
+          labelText: 'Label text'.tr,
+          border: OutlineInputBorder(),
+          suffixIcon: IconButton(
+            icon: Icon(Icons.arrow_drop_down_rounded),
+            onPressed: () {},
+          ),
+        ),
+      ),
+    );
   }
 }

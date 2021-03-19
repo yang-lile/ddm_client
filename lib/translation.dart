@@ -7,6 +7,7 @@ class TextTranslation extends Translations {
           'DDM': '规则文件管理器',
           'home': '主页',
           'store': '商城',
+          'Paste': '粘贴',
         },
       };
 }

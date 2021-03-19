@@ -20,18 +20,14 @@ message Empty{}
 // meta data to save any class-enum
 enum MetaData{
   DEFAULT = 0;
-  // Note
-  TITLE = 1;// title
-  TEXT = 2;// text
-  TIME = 3;// time
-  MESSAGE = 4;// sort text
-  // Path
-  PATH = 5;
-  // Picture
-  IMAGE = 6;
-  // password note
-  SINGLE_TEXT = 7;// (single line)
-  PASS_WORD = 8;
+  // Normal
+  TEXT = 1;
+  PASS_WORD = 2;
+  // special
+  TIME = 3;
+  ADDRESS = 4;
+  FILE = 5;
+  PERIOD = 6;
 }
 
 message RulerId {
@@ -43,9 +39,11 @@ message Ruler{
   // base data
   RulerId rulerId = 1;
   string instruction = 2;
-  repeated string scenesUsed = 3;
+  // maybe user has any default value
+  repeated string defaultValues = 3;
+  repeated string scenesUsed = 4;
   // compose
-  repeated MetaData metaData = 4;
+  repeated MetaData metaData = 5;
 }
 
 message Stars {

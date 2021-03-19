@@ -1,4 +1,4 @@
-import 'package:ddm_client/pages/main_page/page_state_controller.dart';
+import 'package:ddm_client/controllers/main_page/page_state_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
