@@ -40,19 +40,11 @@ class RulerPage extends StatelessWidget {
           mainWidget.add(
             TextFormField(
               initialValue: 'Input text',
-              maxLength: 20,
               decoration: InputDecoration(
-                icon: Icon(Icons.favorite),
                 labelText: 'Label text',
-                labelStyle: TextStyle(
-                  color: Color(0xFF6200EE),
-                ),
-                helperText: 'Helper text',
+                border: OutlineInputBorder(),
                 suffixIcon: Icon(
-                  Icons.check_circle,
-                ),
-                enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Color(0xFF6200EE)),
+                  Icons.error,
                 ),
               ),
             ),
