@@ -10,13 +10,13 @@ import 'package:hive/hive.dart';
 class RulerCard extends StatelessWidget {
   final Ruler ruler;
   final FuntionPages pageState;
-  final int index;
-  final GlobalKey<AnimatedListState> listKey;
-  final Function removeCallBack;
+  final int? index;
+  final GlobalKey<AnimatedListState>? listKey;
+  final Function? removeCallBack;
   const RulerCard({
-    Key key,
-    @required this.ruler,
-    @required this.pageState,
+    Key? key,
+    required this.ruler,
+    required this.pageState,
     this.index,
     this.listKey,
     this.removeCallBack,
@@ -75,14 +75,14 @@ class RulerCard extends StatelessWidget {
                   IconButton(
                     icon: Icon(Icons.delete_forever_rounded),
                     onPressed: () async {
-                      listKey.currentState.removeItem(
-                        index,
+                      listKey!.currentState!.removeItem(
+                        index!,
                         (context, animation) => FadeTransition(
                           opacity: animation,
                           child: removeCard,
                         ),
                       );
-                      removeCallBack();
+                      removeCallBack!();
                     },
                   )
                 ],

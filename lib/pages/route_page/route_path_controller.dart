@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 
 class RoutePathController extends GetxController {
-  Directory directory;
+  late Directory directory;
 
   @override
   onInit() {

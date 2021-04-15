@@ -1,5 +1,5 @@
 import 'dart:io';
 
 class StaticConstPool {
-  static Directory appDocumentDir;
+  static late Directory appDocumentDir;
 }

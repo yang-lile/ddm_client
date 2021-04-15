@@ -12,7 +12,7 @@ import 'package:path_provider/path_provider.dart' as path_provider;
 import 'package:hive_flutter/hive_flutter.dart';
 
 class GuidePage extends StatelessWidget {
-  const GuidePage({Key key}) : super(key: key);
+  const GuidePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -42,12 +42,15 @@ class GuidePage extends StatelessWidget {
     if (File(
       "${StaticConstPool.appDocumentDir.path}/app_data.hive",
     ).existsSync()) {
+      printInfo(info: "has this");
       // to save user data
       final appData = await Hive.openBox('app_data');
       if (GetPlatform.isAndroid) {
         appData.put('user_root_path', '/storage/emulated/0');
       }
-    } else {}
+    } else {
+      printInfo(info: "nulllasdfadsf");
+    }
     Hive.openBox<Uint8List>('user_rulers');
     await getDataFromServer().toList();
   }

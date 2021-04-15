@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 
 class SelectableAppBar extends StatelessWidget {
-  const SelectableAppBar({Key key}) : super(key: key);
+  const SelectableAppBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -72,8 +72,8 @@ class SelectableAppBar extends StatelessWidget {
   }
 
   TextStyle subTitleStyle() {
-    var style = Get.textTheme.bodyText2;
-    var color = Get.theme.textTheme.caption.color;
+    var style = Get.textTheme.bodyText2!;
+    var color = Get.theme.textTheme.caption!.color;
     return style.copyWith(
       color: color,
       fontSize: 12.0,

@@ -6,7 +6,7 @@ enum FuntionPages {
 }
 
 class PageStateController extends GetxController {
-  var _pageState = FuntionPages.Home;
+  FuntionPages? _pageState = FuntionPages.Home;
 
   set pageState(value) {
     this._pageState = value;

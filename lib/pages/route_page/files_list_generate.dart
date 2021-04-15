@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class FilesListGenerate extends StatelessWidget {
-  const FilesListGenerate({Key key}) : super(key: key);
+  const FilesListGenerate({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

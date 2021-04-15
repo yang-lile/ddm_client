@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 
 class RulerPage extends StatelessWidget {
   const RulerPage({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -68,7 +68,7 @@ class RulerPage extends StatelessWidget {
 
 class MetaComponent extends StatelessWidget {
   const MetaComponent({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

@@ -1,7 +1,7 @@
 import 'dart:io';
 
 class RoutePathController {
-  Directory directory;
+  late Directory directory;
 
   RoutePathController() {
     // final box = Hive.box('app_data');

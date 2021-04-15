@@ -24,5 +24,5 @@ class GrpcStub {
   static GrpcStub get instance => _instance;
 
   // must use await
-  DDMClient stub;
+  late DDMClient stub;
 }

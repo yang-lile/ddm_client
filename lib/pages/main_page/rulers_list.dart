@@ -8,7 +8,7 @@ import 'package:hive/hive.dart';
 
 class RulersList extends StatelessWidget {
   const RulersList({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

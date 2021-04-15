@@ -9,7 +9,7 @@ import 'package:hive/hive.dart';
 
 class StoreList extends StatelessWidget {
   const StoreList({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
