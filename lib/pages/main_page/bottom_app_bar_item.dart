@@ -3,11 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class BottomAppBarItem extends StatelessWidget {
-  final IconData? icon;
-  final FuntionPages? state;
-  final PageController? pageController;
-  const BottomAppBarItem({Key? key, this.icon, this.state, this.pageController})
-      : super(key: key);
+  final IconData icon;
+  final FuntionPages state;
+  final PageController pageController;
+  const BottomAppBarItem({
+    Key? key,
+    required this.icon,
+    required this.state,
+    required this.pageController,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +25,8 @@ class BottomAppBarItem extends StatelessWidget {
               : Colors.grey[400],
           onPressed: () {
             Get.find<PageStateController>().pageState = state;
-            pageController!.animateToPage(
-              state == FuntionPages.Home ? 0 : 1,
+            pageController.animateToPage(
+              state.index,
               curve: Curves.easeOutQuart,
               duration: Duration(milliseconds: 500),
             );

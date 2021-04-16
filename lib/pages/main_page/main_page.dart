@@ -1,7 +1,8 @@
 import 'package:ddm_client/controllers/main_page/page_state_controller.dart';
 import 'package:ddm_client/pages/main_page/bottom_app_bar_item.dart';
-import 'package:ddm_client/pages/main_page/rulers_list.dart';
-import 'package:ddm_client/pages/main_page/store_list.dart';
+import 'package:ddm_client/pages/main_page/data_center.dart';
+// import 'package:ddm_client/pages/main_page/rulers_list.dart';
+// import 'package:ddm_client/pages/main_page/store_list.dart';
 import 'package:ddm_client/route/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -17,17 +18,21 @@ class MainPage extends StatelessWidget {
       body: PageView(
         physics: BouncingScrollPhysics(),
         controller: pageController,
-        onPageChanged: (index) => Get.find<PageStateController>().pageState =
-            index == 0 ? FuntionPages.Home : FuntionPages.Store,
+        onPageChanged: (index) {
+          Get.find<PageStateController>().pageState =
+              FuntionPages.values[index];
+        },
         children: [
-          RulersList(),
-          StoreList(),
+          // RulersList(),
+          DataCenter(),
+          // StoreList(),
+          Container(),
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.folder),
+        child: Icon(Icons.create_rounded),
         onPressed: () {
-          Get.toNamed(Routes.ROUTE, arguments: "path");
+          // Get.toNamed(Routes.ROUTE, arguments: "path");
         },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -58,7 +63,9 @@ class MainPage extends StatelessWidget {
       init: PageStateController(),
       builder: (controller) {
         return Text(
-          controller.pageState == FuntionPages.Home ? 'home'.tr : 'store'.tr,
+          controller.pageState == FuntionPages.Home
+              ? 'data center'.tr
+              : 'template store'.tr,
         );
       },
     );
