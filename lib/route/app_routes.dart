@@ -6,4 +6,5 @@ abstract class Routes {
   static const ROUTE = '/route';
   static const GUIDE = '/guide';
   static const RULER = '/ruler';
+  static const PASSWORD = '/password';
 }
