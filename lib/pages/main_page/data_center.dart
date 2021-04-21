@@ -97,7 +97,7 @@ class SceneItem extends StatelessWidget {
           // 点击或者touch控件高亮的shape形状
           highlightShape: BoxShape.rectangle,
           onTap: () {
-            Get.toNamed(aimRoute);
+            Get.to(aimRoute);
             debugPrint("sdfa");
           },
           child: AspectRatio(
