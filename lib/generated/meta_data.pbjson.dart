@@ -8,22 +8,6 @@
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
 import 'dart:typed_data' as $typed_data;
-@$core.Deprecated('Use metaDataDescriptor instead')
-const MetaData$json = const {
-  '1': 'MetaData',
-  '2': const [
-    const {'1': 'DEFAULT', '2': 0},
-    const {'1': 'TEXT', '2': 1},
-    const {'1': 'PASS_WORD', '2': 2},
-    const {'1': 'TIME', '2': 3},
-    const {'1': 'ADDRESS', '2': 4},
-    const {'1': 'FILE', '2': 5},
-    const {'1': 'PERIOD', '2': 6},
-  ],
-};
-
-/// Descriptor for `MetaData`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List metaDataDescriptor = $convert.base64Decode('CghNZXRhRGF0YRILCgdERUZBVUxUEAASCAoEVEVYVBABEg0KCVBBU1NfV09SRBACEggKBFRJTUUQAxILCgdBRERSRVNTEAQSCAoERklMRRAFEgoKBlBFUklPRBAG');
 @$core.Deprecated('Use emptyDescriptor instead')
 const Empty$json = const {
   '1': 'Empty',
@@ -48,14 +32,54 @@ const Ruler$json = const {
   '2': const [
     const {'1': 'rulerId', '3': 1, '4': 1, '5': 11, '6': '.rulers.RulerId', '10': 'rulerId'},
     const {'1': 'instruction', '3': 2, '4': 1, '5': 9, '10': 'instruction'},
-    const {'1': 'defaultValues', '3': 3, '4': 3, '5': 9, '10': 'defaultValues'},
-    const {'1': 'scenesUsed', '3': 4, '4': 3, '5': 9, '10': 'scenesUsed'},
-    const {'1': 'metaData', '3': 5, '4': 3, '5': 14, '6': '.rulers.MetaData', '10': 'metaData'},
+    const {'1': 'scenesUsed', '3': 3, '4': 3, '5': 9, '10': 'scenesUsed'},
+    const {'1': 'pkey', '3': 4, '4': 1, '5': 11, '6': '.rulers.Pkey', '10': 'pkey'},
+    const {'1': 'skey', '3': 5, '4': 1, '5': 11, '6': '.rulers.Skey', '10': 'skey'},
+    const {'1': 'dkey', '3': 6, '4': 1, '5': 11, '6': '.rulers.Dkey', '10': 'dkey'},
   ],
 };
 
 /// Descriptor for `Ruler`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List rulerDescriptor = $convert.base64Decode('CgVSdWxlchIpCgdydWxlcklkGAEgASgLMg8ucnVsZXJzLlJ1bGVySWRSB3J1bGVySWQSIAoLaW5zdHJ1Y3Rpb24YAiABKAlSC2luc3RydWN0aW9uEiQKDWRlZmF1bHRWYWx1ZXMYAyADKAlSDWRlZmF1bHRWYWx1ZXMSHgoKc2NlbmVzVXNlZBgEIAMoCVIKc2NlbmVzVXNlZBIsCghtZXRhRGF0YRgFIAMoDjIQLnJ1bGVycy5NZXRhRGF0YVIIbWV0YURhdGE=');
+final $typed_data.Uint8List rulerDescriptor = $convert.base64Decode('CgVSdWxlchIpCgdydWxlcklkGAEgASgLMg8ucnVsZXJzLlJ1bGVySWRSB3J1bGVySWQSIAoLaW5zdHJ1Y3Rpb24YAiABKAlSC2luc3RydWN0aW9uEh4KCnNjZW5lc1VzZWQYAyADKAlSCnNjZW5lc1VzZWQSIAoEcGtleRgEIAEoCzIMLnJ1bGVycy5Qa2V5UgRwa2V5EiAKBHNrZXkYBSABKAsyDC5ydWxlcnMuU2tleVIEc2tleRIgCgRka2V5GAYgASgLMgwucnVsZXJzLkRrZXlSBGRrZXk=');
+@$core.Deprecated('Use pkeyDescriptor instead')
+const Pkey$json = const {
+  '1': 'Pkey',
+  '2': const [
+    const {'1': 'text_form_field_p', '3': 1, '4': 1, '5': 11, '6': '.text_form_field.primary', '9': 0, '10': 'textFormFieldP'},
+  ],
+  '8': const [
+    const {'1': 'primary'},
+  ],
+};
+
+/// Descriptor for `Pkey`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List pkeyDescriptor = $convert.base64Decode('CgRQa2V5EkUKEXRleHRfZm9ybV9maWVsZF9wGAEgASgLMhgudGV4dF9mb3JtX2ZpZWxkLnByaW1hcnlIAFIOdGV4dEZvcm1GaWVsZFBCCQoHcHJpbWFyeQ==');
+@$core.Deprecated('Use skeyDescriptor instead')
+const Skey$json = const {
+  '1': 'Skey',
+  '2': const [
+    const {'1': 'text_form_field_s', '3': 1, '4': 1, '5': 11, '6': '.text_form_field.secondary', '9': 0, '10': 'textFormFieldS'},
+  ],
+  '8': const [
+    const {'1': 'secondary'},
+  ],
+};
+
+/// Descriptor for `Skey`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List skeyDescriptor = $convert.base64Decode('CgRTa2V5EkcKEXRleHRfZm9ybV9maWVsZF9zGAEgASgLMhoudGV4dF9mb3JtX2ZpZWxkLnNlY29uZGFyeUgAUg50ZXh0Rm9ybUZpZWxkU0ILCglzZWNvbmRhcnk=');
+@$core.Deprecated('Use dkeyDescriptor instead')
+const Dkey$json = const {
+  '1': 'Dkey',
+  '2': const [
+    const {'1': 'text_form_field_d', '3': 1, '4': 1, '5': 11, '6': '.text_form_field.decoration', '9': 0, '10': 'textFormFieldD'},
+  ],
+  '8': const [
+    const {'1': 'decoration'},
+  ],
+};
+
+/// Descriptor for `Dkey`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List dkeyDescriptor = $convert.base64Decode('CgREa2V5EkgKEXRleHRfZm9ybV9maWVsZF9kGAEgASgLMhsudGV4dF9mb3JtX2ZpZWxkLmRlY29yYXRpb25IAFIOdGV4dEZvcm1GaWVsZERCDAoKZGVjb3JhdGlvbg==');
 @$core.Deprecated('Use starsDescriptor instead')
 const Stars$json = const {
   '1': 'Stars',
@@ -66,16 +90,6 @@ const Stars$json = const {
 
 /// Descriptor for `Stars`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List starsDescriptor = $convert.base64Decode('CgVTdGFycxIeCgpzdGFyTnVtYmVyGAEgASgFUgpzdGFyTnVtYmVy');
-@$core.Deprecated('Use pathDataDescriptor instead')
-const PathData$json = const {
-  '1': 'PathData',
-  '2': const [
-    const {'1': 'path', '3': 1, '4': 1, '5': 9, '10': 'path'},
-  ],
-};
-
-/// Descriptor for `PathData`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List pathDataDescriptor = $convert.base64Decode('CghQYXRoRGF0YRISCgRwYXRoGAEgASgJUgRwYXRo');
 @$core.Deprecated('Use versionDescriptor instead')
 const Version$json = const {
   '1': 'Version',

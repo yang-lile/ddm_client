@@ -9,9 +9,7 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'meta_data.pbenum.dart';
-
-export 'meta_data.pbenum.dart';
+import 'modules/text_form_field.pb.dart' as $1;
 
 class Empty extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Empty', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'rulers'), createEmptyInstance: create)
@@ -107,9 +105,10 @@ class Ruler extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Ruler', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'rulers'), createEmptyInstance: create)
     ..aOM<RulerId>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'rulerId', protoName: 'rulerId', subBuilder: RulerId.create)
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'instruction')
-    ..pPS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'defaultValues', protoName: 'defaultValues')
-    ..pPS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'scenesUsed', protoName: 'scenesUsed')
-    ..pc<MetaData>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'metaData', $pb.PbFieldType.PE, protoName: 'metaData', valueOf: MetaData.valueOf, enumValues: MetaData.values)
+    ..pPS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'scenesUsed', protoName: 'scenesUsed')
+    ..aOM<Pkey>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pkey', subBuilder: Pkey.create)
+    ..aOM<Skey>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'skey', subBuilder: Skey.create)
+    ..aOM<Dkey>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'dkey', subBuilder: Dkey.create)
     ..hasRequiredFields = false
   ;
 
@@ -117,9 +116,10 @@ class Ruler extends $pb.GeneratedMessage {
   factory Ruler({
     RulerId? rulerId,
     $core.String? instruction,
-    $core.Iterable<$core.String>? defaultValues,
     $core.Iterable<$core.String>? scenesUsed,
-    $core.Iterable<MetaData>? metaData,
+    Pkey? pkey,
+    Skey? skey,
+    Dkey? dkey,
   }) {
     final _result = create();
     if (rulerId != null) {
@@ -128,14 +128,17 @@ class Ruler extends $pb.GeneratedMessage {
     if (instruction != null) {
       _result.instruction = instruction;
     }
-    if (defaultValues != null) {
-      _result.defaultValues.addAll(defaultValues);
-    }
     if (scenesUsed != null) {
       _result.scenesUsed.addAll(scenesUsed);
     }
-    if (metaData != null) {
-      _result.metaData.addAll(metaData);
+    if (pkey != null) {
+      _result.pkey = pkey;
+    }
+    if (skey != null) {
+      _result.skey = skey;
+    }
+    if (dkey != null) {
+      _result.dkey = dkey;
     }
     return _result;
   }
@@ -181,13 +184,226 @@ class Ruler extends $pb.GeneratedMessage {
   void clearInstruction() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.List<$core.String> get defaultValues => $_getList(2);
+  $core.List<$core.String> get scenesUsed => $_getList(2);
 
   @$pb.TagNumber(4)
-  $core.List<$core.String> get scenesUsed => $_getList(3);
+  Pkey get pkey => $_getN(3);
+  @$pb.TagNumber(4)
+  set pkey(Pkey v) { setField(4, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasPkey() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearPkey() => clearField(4);
+  @$pb.TagNumber(4)
+  Pkey ensurePkey() => $_ensure(3);
 
   @$pb.TagNumber(5)
-  $core.List<MetaData> get metaData => $_getList(4);
+  Skey get skey => $_getN(4);
+  @$pb.TagNumber(5)
+  set skey(Skey v) { setField(5, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasSkey() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearSkey() => clearField(5);
+  @$pb.TagNumber(5)
+  Skey ensureSkey() => $_ensure(4);
+
+  @$pb.TagNumber(6)
+  Dkey get dkey => $_getN(5);
+  @$pb.TagNumber(6)
+  set dkey(Dkey v) { setField(6, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasDkey() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearDkey() => clearField(6);
+  @$pb.TagNumber(6)
+  Dkey ensureDkey() => $_ensure(5);
+}
+
+enum Pkey_Primary {
+  textFormFieldP, 
+  notSet
+}
+
+class Pkey extends $pb.GeneratedMessage {
+  static const $core.Map<$core.int, Pkey_Primary> _Pkey_PrimaryByTag = {
+    1 : Pkey_Primary.textFormFieldP,
+    0 : Pkey_Primary.notSet
+  };
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Pkey', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'rulers'), createEmptyInstance: create)
+    ..oo(0, [1])
+    ..aOM<$1.primary>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'textFormFieldP', subBuilder: $1.primary.create)
+    ..hasRequiredFields = false
+  ;
+
+  Pkey._() : super();
+  factory Pkey({
+    $1.primary? textFormFieldP,
+  }) {
+    final _result = create();
+    if (textFormFieldP != null) {
+      _result.textFormFieldP = textFormFieldP;
+    }
+    return _result;
+  }
+  factory Pkey.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory Pkey.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  Pkey clone() => Pkey()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  Pkey copyWith(void Function(Pkey) updates) => super.copyWith((message) => updates(message as Pkey)) as Pkey; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static Pkey create() => Pkey._();
+  Pkey createEmptyInstance() => create();
+  static $pb.PbList<Pkey> createRepeated() => $pb.PbList<Pkey>();
+  @$core.pragma('dart2js:noInline')
+  static Pkey getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Pkey>(create);
+  static Pkey? _defaultInstance;
+
+  Pkey_Primary whichPrimary() => _Pkey_PrimaryByTag[$_whichOneof(0)]!;
+  void clearPrimary() => clearField($_whichOneof(0));
+
+  @$pb.TagNumber(1)
+  $1.primary get textFormFieldP => $_getN(0);
+  @$pb.TagNumber(1)
+  set textFormFieldP($1.primary v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasTextFormFieldP() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearTextFormFieldP() => clearField(1);
+  @$pb.TagNumber(1)
+  $1.primary ensureTextFormFieldP() => $_ensure(0);
+}
+
+enum Skey_Secondary {
+  textFormFieldS, 
+  notSet
+}
+
+class Skey extends $pb.GeneratedMessage {
+  static const $core.Map<$core.int, Skey_Secondary> _Skey_SecondaryByTag = {
+    1 : Skey_Secondary.textFormFieldS,
+    0 : Skey_Secondary.notSet
+  };
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Skey', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'rulers'), createEmptyInstance: create)
+    ..oo(0, [1])
+    ..aOM<$1.secondary>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'textFormFieldS', subBuilder: $1.secondary.create)
+    ..hasRequiredFields = false
+  ;
+
+  Skey._() : super();
+  factory Skey({
+    $1.secondary? textFormFieldS,
+  }) {
+    final _result = create();
+    if (textFormFieldS != null) {
+      _result.textFormFieldS = textFormFieldS;
+    }
+    return _result;
+  }
+  factory Skey.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory Skey.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  Skey clone() => Skey()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  Skey copyWith(void Function(Skey) updates) => super.copyWith((message) => updates(message as Skey)) as Skey; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static Skey create() => Skey._();
+  Skey createEmptyInstance() => create();
+  static $pb.PbList<Skey> createRepeated() => $pb.PbList<Skey>();
+  @$core.pragma('dart2js:noInline')
+  static Skey getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Skey>(create);
+  static Skey? _defaultInstance;
+
+  Skey_Secondary whichSecondary() => _Skey_SecondaryByTag[$_whichOneof(0)]!;
+  void clearSecondary() => clearField($_whichOneof(0));
+
+  @$pb.TagNumber(1)
+  $1.secondary get textFormFieldS => $_getN(0);
+  @$pb.TagNumber(1)
+  set textFormFieldS($1.secondary v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasTextFormFieldS() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearTextFormFieldS() => clearField(1);
+  @$pb.TagNumber(1)
+  $1.secondary ensureTextFormFieldS() => $_ensure(0);
+}
+
+enum Dkey_Decoration {
+  textFormFieldD, 
+  notSet
+}
+
+class Dkey extends $pb.GeneratedMessage {
+  static const $core.Map<$core.int, Dkey_Decoration> _Dkey_DecorationByTag = {
+    1 : Dkey_Decoration.textFormFieldD,
+    0 : Dkey_Decoration.notSet
+  };
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Dkey', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'rulers'), createEmptyInstance: create)
+    ..oo(0, [1])
+    ..aOM<$1.decoration>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'textFormFieldD', subBuilder: $1.decoration.create)
+    ..hasRequiredFields = false
+  ;
+
+  Dkey._() : super();
+  factory Dkey({
+    $1.decoration? textFormFieldD,
+  }) {
+    final _result = create();
+    if (textFormFieldD != null) {
+      _result.textFormFieldD = textFormFieldD;
+    }
+    return _result;
+  }
+  factory Dkey.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory Dkey.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  Dkey clone() => Dkey()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  Dkey copyWith(void Function(Dkey) updates) => super.copyWith((message) => updates(message as Dkey)) as Dkey; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static Dkey create() => Dkey._();
+  Dkey createEmptyInstance() => create();
+  static $pb.PbList<Dkey> createRepeated() => $pb.PbList<Dkey>();
+  @$core.pragma('dart2js:noInline')
+  static Dkey getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Dkey>(create);
+  static Dkey? _defaultInstance;
+
+  Dkey_Decoration whichDecoration() => _Dkey_DecorationByTag[$_whichOneof(0)]!;
+  void clearDecoration() => clearField($_whichOneof(0));
+
+  @$pb.TagNumber(1)
+  $1.decoration get textFormFieldD => $_getN(0);
+  @$pb.TagNumber(1)
+  set textFormFieldD($1.decoration v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasTextFormFieldD() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearTextFormFieldD() => clearField(1);
+  @$pb.TagNumber(1)
+  $1.decoration ensureTextFormFieldD() => $_ensure(0);
 }
 
 class Stars extends $pb.GeneratedMessage {
@@ -235,53 +451,6 @@ class Stars extends $pb.GeneratedMessage {
   $core.bool hasStarNumber() => $_has(0);
   @$pb.TagNumber(1)
   void clearStarNumber() => clearField(1);
-}
-
-class PathData extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'PathData', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'rulers'), createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'path')
-    ..hasRequiredFields = false
-  ;
-
-  PathData._() : super();
-  factory PathData({
-    $core.String? path,
-  }) {
-    final _result = create();
-    if (path != null) {
-      _result.path = path;
-    }
-    return _result;
-  }
-  factory PathData.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory PathData.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  PathData clone() => PathData()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  PathData copyWith(void Function(PathData) updates) => super.copyWith((message) => updates(message as PathData)) as PathData; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static PathData create() => PathData._();
-  PathData createEmptyInstance() => create();
-  static $pb.PbList<PathData> createRepeated() => $pb.PbList<PathData>();
-  @$core.pragma('dart2js:noInline')
-  static PathData getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<PathData>(create);
-  static PathData? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $core.String get path => $_getSZ(0);
-  @$pb.TagNumber(1)
-  set path($core.String v) { $_setString(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasPath() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearPath() => clearField(1);
 }
 
 class Version extends $pb.GeneratedMessage {

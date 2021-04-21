@@ -1,4 +1,4 @@
-import 'package:ddm_client/generated/meta_data/meta_data.pbgrpc.dart';
+import 'package:ddm_client/generated/meta_data.pbgrpc.dart';
 import 'package:ddm_client/ip_data.dart';
 import 'package:grpc/grpc.dart' as grpc;
 

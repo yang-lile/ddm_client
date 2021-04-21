@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'dart:typed_data';
 
-import 'package:ddm_client/generated/meta_data/meta_data.pbgrpc.dart';
+import 'package:ddm_client/generated/meta_data.pbgrpc.dart';
 import 'package:ddm_client/grpc_stub.dart';
 import 'package:ddm_client/route/app_pages.dart';
 import 'package:ddm_client/static_const_pool.dart';

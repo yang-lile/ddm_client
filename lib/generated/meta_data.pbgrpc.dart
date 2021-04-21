@@ -22,10 +22,6 @@ class DDMClient extends $grpc.Client {
       '/rulers.DDM/getStars',
       ($0.RulerId value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.Stars.fromBuffer(value));
-  static final _$getPath = $grpc.ClientMethod<$0.RulerId, $0.PathData>(
-      '/rulers.DDM/getPath',
-      ($0.RulerId value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $0.PathData.fromBuffer(value));
   static final _$getVersion = $grpc.ClientMethod<$0.Version, $0.NeedUpdate>(
       '/rulers.DDM/getVersion',
       ($0.Version value) => value.writeToBuffer(),
@@ -46,13 +42,6 @@ class DDMClient extends $grpc.Client {
   $grpc.ResponseFuture<$0.Stars> getStars($0.RulerId request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getStars, request, options: options);
-  }
-
-  $grpc.ResponseStream<$0.PathData> getPath($0.RulerId request,
-      {$grpc.CallOptions? options}) {
-    return $createStreamingCall(
-        _$getPath, $async.Stream.fromIterable([request]),
-        options: options);
   }
 
   $grpc.ResponseFuture<$0.NeedUpdate> getVersion($0.Version request,
@@ -79,13 +68,6 @@ abstract class DDMServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.RulerId.fromBuffer(value),
         ($0.Stars value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.RulerId, $0.PathData>(
-        'getPath',
-        getPath_Pre,
-        false,
-        true,
-        ($core.List<$core.int> value) => $0.RulerId.fromBuffer(value),
-        ($0.PathData value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.Version, $0.NeedUpdate>(
         'getVersion',
         getVersion_Pre,
@@ -105,11 +87,6 @@ abstract class DDMServiceBase extends $grpc.Service {
     return getStars(call, await request);
   }
 
-  $async.Stream<$0.PathData> getPath_Pre(
-      $grpc.ServiceCall call, $async.Future<$0.RulerId> request) async* {
-    yield* getPath(call, await request);
-  }
-
   $async.Future<$0.NeedUpdate> getVersion_Pre(
       $grpc.ServiceCall call, $async.Future<$0.Version> request) async {
     return getVersion(call, await request);
@@ -117,8 +94,6 @@ abstract class DDMServiceBase extends $grpc.Service {
 
   $async.Stream<$0.Ruler> getRulers($grpc.ServiceCall call, $0.Empty request);
   $async.Future<$0.Stars> getStars($grpc.ServiceCall call, $0.RulerId request);
-  $async.Stream<$0.PathData> getPath(
-      $grpc.ServiceCall call, $0.RulerId request);
   $async.Future<$0.NeedUpdate> getVersion(
       $grpc.ServiceCall call, $0.Version request);
 }

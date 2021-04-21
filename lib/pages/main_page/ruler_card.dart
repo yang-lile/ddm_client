@@ -1,7 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:ddm_client/controllers/main_page/page_state_controller.dart';
-import 'package:ddm_client/generated/meta_data/meta_data.pb.dart';
+import 'package:ddm_client/generated/meta_data.pbgrpc.dart';
 import 'package:ddm_client/route/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
