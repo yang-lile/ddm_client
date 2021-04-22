@@ -15,19 +15,6 @@ service DDM{
 
 message Empty{}
 
-// // meta data to save any class-enum
-// enum MetaData{
-//   DEFAULT = 0;
-//   // Normal
-//   TEXT = 1;
-//   PASS_WORD = 2;
-//   // special
-//   TIME = 3;
-//   ADDRESS = 4;
-//   FILE = 5;
-//   PERIOD = 6;
-// }
-
 message RulerId {
   string source = 1;
   string ruleName = 2;
@@ -42,6 +29,16 @@ message Ruler{
   Pkey pkey = 4;
   Skey skey = 5;
   Dkey dkey = 6;
+}
+
+message BaseData {
+  string alias = 1;
+  string user = 2;
+}
+
+message RulerData {
+  BaseData baseData = 1;
+  repeated Pkey pkey = 2;
 }
 
 message Pkey {
@@ -65,6 +62,10 @@ message Dkey {
 
 message Stars {
   int32 starNumber = 1;
+}
+
+message Downloads {
+  int32 DownloadNumber = 1;
 }
 
 message Version {

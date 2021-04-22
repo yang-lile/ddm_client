@@ -1,5 +1,3 @@
-import 'dart:typed_data';
-
 import 'package:ddm_client/controllers/main_page/page_state_controller.dart';
 import 'package:ddm_client/generated/meta_data.pbgrpc.dart';
 
@@ -14,10 +12,10 @@ class StoreList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final unit8List = Hive.box<Uint8List>('rulers').values.toList();
+    final unit8List = Hive.box<String>('rulers').values.toList();
     List<Ruler> rulers = [];
     unit8List.forEach((element) {
-      rulers.add(Ruler.fromBuffer(element));
+      rulers.add(Ruler.fromJson(element));
     });
     return ListView.builder(
       itemCount: rulers.length,

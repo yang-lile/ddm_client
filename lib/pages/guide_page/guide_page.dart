@@ -2,7 +2,8 @@ import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:ddm_client/generated/meta_data.pbgrpc.dart';
-import 'package:ddm_client/grpc_stub.dart';
+import 'package:ddm_client/generated/modules/text_form_field.pb.dart';
+// import 'package:ddm_client/grpc_stub.dart';
 import 'package:ddm_client/route/app_pages.dart';
 import 'package:ddm_client/static_const_pool.dart';
 import 'package:flutter/material.dart';
@@ -49,20 +50,38 @@ class GuidePage extends StatelessWidget {
         appData.put('user_root_path', '/storage/emulated/0');
       }
     } else {
-      printInfo(info: "nulllasdfadsf");
+      printInfo(info: "null lasdfadsf");
     }
     Hive.openBox<Uint8List>('user_rulers');
     await getDataFromServer().toList();
   }
 
   Stream<void> getDataFromServer() async* {
-    final stub = GrpcStub.instance.stub;
-    var rulers = stub.getRulers(Empty());
-    final rulersBox = await Hive.openBox<Uint8List>('rulers');
+    // final stub = GrpcStub.instance.stub;
+    // var rulers = stub.getRulers(Empty());
+    final rulersBox = await Hive.openBox<String>('rulers');
     rulersBox.clear();
-    await for (var item in rulers) {
-      rulersBox.add(item.writeToBuffer());
+    // await for (var item in rulers) {
+    //   rulersBox.add(item.writeToBuffer());
+    // }
+    // return;
+    for (var i = 0; i < StaticDataPool.rulers.length; i++) {
+      rulersBox.put(i, StaticDataPool.rulers[i].writeToJson());
     }
     return;
   }
+}
+
+class StaticDataPool {
+  static const version = 1;
+  static List<Ruler> rulers = [
+    Ruler(
+      rulerId: RulerId(source: '官方', ruleName: '文本'),
+      instruction: '提供一个演示使用的短文本',
+      scenesUsed: ['临时记录', '传输文本'],
+      pkey: Pkey(
+        textFormFieldP: primary(text: 'text'),
+      ),
+    ),
+  ];
 }

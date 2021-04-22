@@ -1,66 +1,80 @@
+import 'package:ddm_client/generated/meta_data.pbgrpc.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hive/hive.dart';
 
 class DataCenter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return GridView.extent(
-      maxCrossAxisExtent: 250,
-      children: [
-        // SceneItem(
-        //   iconData: Icons.event_note_rounded,
-        //   name: "密码本",
-        //   maxSize: 250,
-        //   aimRoute: ,
-        // ),
-        // TextField(
-        //   autocorrect: ,
-        //   autofillHints: ,
-        //   autofocus: ,
-        //   textAlign: ,
-        //   textAlignVertical: ,
-        //   keyboardAppearance: ,
-        //   textInputAction: ,
-        //   buildCounter: ,
-        //   controller: ,
-        //   cursorColor: ,
-        //   cursorHeight: ,
-        //   cursorRadius: ,
-        //   cursorWidth: ,
-        //   onChanged: ,
-        //   showCursor: ,
-        //   textCapitalization: ,
-        //   scrollController: ,
-        //   obscuringCharacter: ,
-        //   onEditingComplete: ,
-        //   selectionControls: ,
-        //   decoration: ,
-        //   textDirection: ,
-        //   smartDashesType: ,
-        //   enableInteractiveSelection: ,
-        //   enableSuggestions: ,
-        //   enabled: ,
-        //   expands: ,
-        //   maxLengthEnforcement: ,
-        //   inputFormatters: [],
-        //   obscureText: ,
-        //   onTap: ,
-        //   readOnly: ,
-        //   toolbarOptions: ,
-        //   smartQuotesType: ,
-        //   keyboardType: ,
-        //   scrollPadding: ,
-        //   scrollPhysics: ,
-        //   strutStyle: ,
-        //   style: ,
-        //   focusNode: ,
-        //   key: ,
-        //   maxLength: ,
-        //   maxLines: ,
-        //   minLines: ,
-        // ),
-      ],
+    final box = Hive.box<String>('rulers');
+    printInfo(info: box.toString());
+    return ListView.builder(
+      itemCount: box.length,
+      itemBuilder: (context, index) {
+        final data = Ruler.fromJson(box.get(index) ?? "");
+        printInfo(info: data.toString());
+        return ListTile(
+          title: Text("${data.rulerId.source}/${data.rulerId.ruleName}"),
+        );
+      },
     );
+    // GridView.extent(
+    //   maxCrossAxisExtent: 250,
+    //   children: [
+    //     // SceneItem(
+    //     //   iconData: Icons.event_note_rounded,
+    //     //   name: "密码本",
+    //     //   maxSize: 250,
+    //     //   aimRoute: ,
+    //     // ),
+    //     // TextField(
+    //     //   autocorrect: ,
+    //     //   autofillHints: ,
+    //     //   autofocus: ,
+    //     //   textAlign: ,
+    //     //   textAlignVertical: ,
+    //     //   keyboardAppearance: ,
+    //     //   textInputAction: ,
+    //     //   buildCounter: ,
+    //     //   controller: ,
+    //     //   cursorColor: ,
+    //     //   cursorHeight: ,
+    //     //   cursorRadius: ,
+    //     //   cursorWidth: ,
+    //     //   onChanged: ,
+    //     //   showCursor: ,
+    //     //   textCapitalization: ,
+    //     //   scrollController: ,
+    //     //   obscuringCharacter: ,
+    //     //   onEditingComplete: ,
+    //     //   selectionControls: ,
+    //     //   decoration: ,
+    //     //   textDirection: ,
+    //     //   smartDashesType: ,
+    //     //   enableInteractiveSelection: ,
+    //     //   enableSuggestions: ,
+    //     //   enabled: ,
+    //     //   expands: ,
+    //     //   maxLengthEnforcement: ,
+    //     //   inputFormatters: [],
+    //     //   obscureText: ,
+    //     //   onTap: ,
+    //     //   readOnly: ,
+    //     //   toolbarOptions: ,
+    //     //   smartQuotesType: ,
+    //     //   keyboardType: ,
+    //     //   scrollPadding: ,
+    //     //   scrollPhysics: ,
+    //     //   strutStyle: ,
+    //     //   style: ,
+    //     //   focusNode: ,
+    //     //   key: ,
+    //     //   maxLength: ,
+    //     //   maxLines: ,
+    //     //   minLines: ,
+    //     // ),
+    //   ],
+    // );
   }
 }
 

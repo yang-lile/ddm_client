@@ -41,6 +41,28 @@ const Ruler$json = const {
 
 /// Descriptor for `Ruler`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List rulerDescriptor = $convert.base64Decode('CgVSdWxlchIpCgdydWxlcklkGAEgASgLMg8ucnVsZXJzLlJ1bGVySWRSB3J1bGVySWQSIAoLaW5zdHJ1Y3Rpb24YAiABKAlSC2luc3RydWN0aW9uEh4KCnNjZW5lc1VzZWQYAyADKAlSCnNjZW5lc1VzZWQSIAoEcGtleRgEIAEoCzIMLnJ1bGVycy5Qa2V5UgRwa2V5EiAKBHNrZXkYBSABKAsyDC5ydWxlcnMuU2tleVIEc2tleRIgCgRka2V5GAYgASgLMgwucnVsZXJzLkRrZXlSBGRrZXk=');
+@$core.Deprecated('Use baseDataDescriptor instead')
+const BaseData$json = const {
+  '1': 'BaseData',
+  '2': const [
+    const {'1': 'alias', '3': 1, '4': 1, '5': 9, '10': 'alias'},
+    const {'1': 'user', '3': 2, '4': 1, '5': 9, '10': 'user'},
+  ],
+};
+
+/// Descriptor for `BaseData`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List baseDataDescriptor = $convert.base64Decode('CghCYXNlRGF0YRIUCgVhbGlhcxgBIAEoCVIFYWxpYXMSEgoEdXNlchgCIAEoCVIEdXNlcg==');
+@$core.Deprecated('Use rulerDataDescriptor instead')
+const RulerData$json = const {
+  '1': 'RulerData',
+  '2': const [
+    const {'1': 'baseData', '3': 1, '4': 1, '5': 11, '6': '.rulers.BaseData', '10': 'baseData'},
+    const {'1': 'pkey', '3': 2, '4': 3, '5': 11, '6': '.rulers.Pkey', '10': 'pkey'},
+  ],
+};
+
+/// Descriptor for `RulerData`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List rulerDataDescriptor = $convert.base64Decode('CglSdWxlckRhdGESLAoIYmFzZURhdGEYASABKAsyEC5ydWxlcnMuQmFzZURhdGFSCGJhc2VEYXRhEiAKBHBrZXkYAiADKAsyDC5ydWxlcnMuUGtleVIEcGtleQ==');
 @$core.Deprecated('Use pkeyDescriptor instead')
 const Pkey$json = const {
   '1': 'Pkey',
@@ -90,6 +112,16 @@ const Stars$json = const {
 
 /// Descriptor for `Stars`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List starsDescriptor = $convert.base64Decode('CgVTdGFycxIeCgpzdGFyTnVtYmVyGAEgASgFUgpzdGFyTnVtYmVy');
+@$core.Deprecated('Use downloadsDescriptor instead')
+const Downloads$json = const {
+  '1': 'Downloads',
+  '2': const [
+    const {'1': 'DownloadNumber', '3': 1, '4': 1, '5': 5, '10': 'DownloadNumber'},
+  ],
+};
+
+/// Descriptor for `Downloads`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List downloadsDescriptor = $convert.base64Decode('CglEb3dubG9hZHMSJgoORG93bmxvYWROdW1iZXIYASABKAVSDkRvd25sb2FkTnVtYmVy');
 @$core.Deprecated('Use versionDescriptor instead')
 const Version$json = const {
   '1': 'Version',

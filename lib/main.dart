@@ -12,7 +12,7 @@ Future<void> main() async {
       locale: Locale('zh', 'CN'),
       fallbackLocale: Locale('en', 'US'),
       title: 'DDM'.tr,
-      initialRoute: Routes.RULERLIST,
+      initialRoute: Routes.GUIDE,
       getPages: AppPages.pages,
       darkTheme: ThemeData.dark(),
     ),

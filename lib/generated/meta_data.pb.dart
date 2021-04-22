@@ -220,6 +220,124 @@ class Ruler extends $pb.GeneratedMessage {
   Dkey ensureDkey() => $_ensure(5);
 }
 
+class BaseData extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'BaseData', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'rulers'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'alias')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'user')
+    ..hasRequiredFields = false
+  ;
+
+  BaseData._() : super();
+  factory BaseData({
+    $core.String? alias,
+    $core.String? user,
+  }) {
+    final _result = create();
+    if (alias != null) {
+      _result.alias = alias;
+    }
+    if (user != null) {
+      _result.user = user;
+    }
+    return _result;
+  }
+  factory BaseData.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory BaseData.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  BaseData clone() => BaseData()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  BaseData copyWith(void Function(BaseData) updates) => super.copyWith((message) => updates(message as BaseData)) as BaseData; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static BaseData create() => BaseData._();
+  BaseData createEmptyInstance() => create();
+  static $pb.PbList<BaseData> createRepeated() => $pb.PbList<BaseData>();
+  @$core.pragma('dart2js:noInline')
+  static BaseData getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<BaseData>(create);
+  static BaseData? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get alias => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set alias($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasAlias() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearAlias() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get user => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set user($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasUser() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearUser() => clearField(2);
+}
+
+class RulerData extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'RulerData', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'rulers'), createEmptyInstance: create)
+    ..aOM<BaseData>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'baseData', protoName: 'baseData', subBuilder: BaseData.create)
+    ..pc<Pkey>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pkey', $pb.PbFieldType.PM, subBuilder: Pkey.create)
+    ..hasRequiredFields = false
+  ;
+
+  RulerData._() : super();
+  factory RulerData({
+    BaseData? baseData,
+    $core.Iterable<Pkey>? pkey,
+  }) {
+    final _result = create();
+    if (baseData != null) {
+      _result.baseData = baseData;
+    }
+    if (pkey != null) {
+      _result.pkey.addAll(pkey);
+    }
+    return _result;
+  }
+  factory RulerData.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory RulerData.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  RulerData clone() => RulerData()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  RulerData copyWith(void Function(RulerData) updates) => super.copyWith((message) => updates(message as RulerData)) as RulerData; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static RulerData create() => RulerData._();
+  RulerData createEmptyInstance() => create();
+  static $pb.PbList<RulerData> createRepeated() => $pb.PbList<RulerData>();
+  @$core.pragma('dart2js:noInline')
+  static RulerData getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<RulerData>(create);
+  static RulerData? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  BaseData get baseData => $_getN(0);
+  @$pb.TagNumber(1)
+  set baseData(BaseData v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasBaseData() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearBaseData() => clearField(1);
+  @$pb.TagNumber(1)
+  BaseData ensureBaseData() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  $core.List<Pkey> get pkey => $_getList(1);
+}
+
 enum Pkey_Primary {
   textFormFieldP, 
   notSet
@@ -451,6 +569,53 @@ class Stars extends $pb.GeneratedMessage {
   $core.bool hasStarNumber() => $_has(0);
   @$pb.TagNumber(1)
   void clearStarNumber() => clearField(1);
+}
+
+class Downloads extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Downloads', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'rulers'), createEmptyInstance: create)
+    ..a<$core.int>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'DownloadNumber', $pb.PbFieldType.O3, protoName: 'DownloadNumber')
+    ..hasRequiredFields = false
+  ;
+
+  Downloads._() : super();
+  factory Downloads({
+    $core.int? downloadNumber,
+  }) {
+    final _result = create();
+    if (downloadNumber != null) {
+      _result.downloadNumber = downloadNumber;
+    }
+    return _result;
+  }
+  factory Downloads.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory Downloads.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  Downloads clone() => Downloads()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  Downloads copyWith(void Function(Downloads) updates) => super.copyWith((message) => updates(message as Downloads)) as Downloads; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static Downloads create() => Downloads._();
+  Downloads createEmptyInstance() => create();
+  static $pb.PbList<Downloads> createRepeated() => $pb.PbList<Downloads>();
+  @$core.pragma('dart2js:noInline')
+  static Downloads getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Downloads>(create);
+  static Downloads? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.int get downloadNumber => $_getIZ(0);
+  @$pb.TagNumber(1)
+  set downloadNumber($core.int v) { $_setSignedInt32(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasDownloadNumber() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearDownloadNumber() => clearField(1);
 }
 
 class Version extends $pb.GeneratedMessage {
