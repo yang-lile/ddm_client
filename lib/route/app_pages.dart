@@ -12,6 +12,7 @@ abstract class AppPages {
     GetPage(name: Routes.ROUTE, page: () => RoutePage()),
     GetPage(name: Routes.GUIDE, page: () => GuidePage()),
     // GetPage(name: Routes.RULER, page: () => RulerPage()),
-    GetPage(name: Routes.RULERLIST, page: () => RulerListPage()),
+    // GetPage(name: Routes.RULERLIST, page: () => RulerListPage()),
+    GetPage(name: Routes.ROUTE, page: () => RoutePage()),
   ];
 }

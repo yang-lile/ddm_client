@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 package rulers;
-import "modules/text_form_field.proto";
+import "google/protobuf/any.proto";
 
 service DDM{
   // get all rulers
@@ -13,65 +13,52 @@ service DDM{
   rpc getVersion(Version) returns (NeedUpdate) {}
 }
 
+/// 用于请求规则
 message Empty{}
 
+/// 用于标注规则唯一标识
 message RulerId {
   string source = 1;
   string ruleName = 2;
 }
 
+enum System {
+  all = 0;
+  android = 1;
+  ios = 2;
+  windows = 3;
+  linux = 4;
+  mac = 5;
+  fuchsia = 6;
+}
+
+/// 规则主体
 message Ruler{
   // base data
   RulerId rulerId = 1;
-  string instruction = 2;
+  string describe = 2;
   // maybe user has any default value
   repeated string scenesUsed = 3;
-  Pkey pkey = 4;
-  Skey skey = 5;
-  Dkey dkey = 6;
+  System system = 4;
+  google.protobuf.Any data = 5;
 }
 
-message BaseData {
-  string alias = 1;
-  string user = 2;
-}
-
-message RulerData {
-  BaseData baseData = 1;
-  repeated Pkey pkey = 2;
-}
-
-message Pkey {
-  oneof primary {
-    // start from 10
-    text_form_field.primary text_form_field_p = 1;
-  }
-}
-
-message Skey {
-  oneof secondary {
-    text_form_field.secondary text_form_field_s = 1;
-  }
-}
-
-message Dkey {
-  oneof decoration {
-    text_form_field.decoration text_form_field_d = 1;
-  }
-}
-
+/// 点赞数
 message Stars {
   int32 starNumber = 1;
 }
 
+/// 下载量
 message Downloads {
   int32 DownloadNumber = 1;
 }
 
+/// 版本号
 message Version {
   int32 version = 1;
 }
 
+/// 版本号低的需要更新
 message NeedUpdate{
   bool needUpdate = 1;
 }

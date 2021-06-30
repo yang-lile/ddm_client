@@ -1,22 +1,48 @@
-import 'package:ddm_client/generated/meta_data.pbgrpc.dart';
+import 'package:ddm_client/route/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 
+/// 展示已经下载的规则列表
 class DataCenter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final box = Hive.box<String>('rulers');
     printInfo(info: box.toString());
-    return ListView.builder(
-      itemCount: box.length,
-      itemBuilder: (context, index) {
-        final data = Ruler.fromJson(box.get(index) ?? "");
-        printInfo(info: data.toString());
-        return ListTile(
-          title: Text("${data.rulerId.source}/${data.rulerId.ruleName}"),
-        );
-      },
+    final items = [
+      'Download',
+      'Pictures',
+      'DCIM',
+      'Documents',
+      'Fonts',
+      'Music',
+    ];
+    final items2 = [
+      '系统下载目录',
+      '系统图片目录',
+      '系统照片媒体目录',
+      '系统文档目录',
+      '系统字体目录',
+      '系统音乐目录',
+    ];
+    return GridView.count(
+      crossAxisCount: 2,
+      childAspectRatio: 2.0,
+      // final data = Ruler.fromJson(box.get(index) ?? "");
+      // printInfo(info: data.toString());
+      // final title = "${data.rulerId.source}/${data.rulerId.ruleName}";
+      children: [
+        for (int i = 0; i < items.length; i++)
+          Card(
+            child: ListTile(
+              title: Text(items[i]),
+              subtitle: Text(items2[i]),
+              onTap: () {
+                Get.toNamed(Routes.RULERLIST, arguments: [items[i]]);
+              },
+            ),
+          )
+      ],
     );
     // GridView.extent(
     //   maxCrossAxisExtent: 250,

@@ -11,7 +11,7 @@ class RoutePage extends StatelessWidget {
         if (snap.connectionState == ConnectionState.done) {
           return SelectableAppBar();
         } else {
-          return CircularProgressIndicator();
+          return Center(child: CircularProgressIndicator());
         }
       },
     );

@@ -89,3 +89,19 @@
 //     );
 //   }
 // }
+
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+class RulerPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final args = Get.arguments;
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("$args"),
+      ),
+      body: Container(),
+    );
+  }
+}

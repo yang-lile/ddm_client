@@ -32,7 +32,7 @@ class RulerCard extends StatelessWidget {
           style: TextStyle(fontSize: 20),
         ),
         subtitle: Text(
-          '${ruler.instruction}',
+          '${ruler.describe}',
           maxLines: 5,
         ),
         trailing: Row(
@@ -59,7 +59,7 @@ class RulerCard extends StatelessWidget {
           style: TextStyle(fontSize: 20),
         ),
         subtitle: Text(
-          '${ruler.instruction}',
+          '${ruler.describe}',
           maxLines: 5,
         ),
         trailing: pageState == FuntionPages.Home
@@ -91,7 +91,9 @@ class RulerCard extends StatelessWidget {
             // Store
             IconButton(
                 icon: Icon(Icons.download_rounded),
-                onPressed: () => addRuler(context),
+                onPressed: () {
+                  // addRuler(context);
+                },
               ),
         onTap: () {
           if (pageState == FuntionPages.Home) {
@@ -100,7 +102,35 @@ class RulerCard extends StatelessWidget {
               arguments: ruler,
             );
           } else {
-            // open a window to show message
+            print('object');
+            showDialog(
+              context: context,
+              builder: (context) {
+                return Dialog(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ListView(
+                      shrinkWrap: true,
+                      children: [
+                        Text(
+                            '${ruler.rulerId.source}/${ruler.rulerId.ruleName}',
+                            style: context.textTheme.headline6),
+                        Divider(),
+                        Text(
+                          '描述：${ruler.describe}',
+                        ),
+                        SizedBox(height: 4.0),
+                        Text('用于：${ruler.scenesUsed}'),
+                        SizedBox(height: 4.0),
+                        Text('适用的操作系统：${ruler.system}'),
+                        SizedBox(height: 4.0),
+                        Text('规则：${ruler.data}'),
+                      ],
+                    ),
+                  ),
+                );
+              },
+            );
           }
         },
       ),

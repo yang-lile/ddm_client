@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 
+/// 用于主页的左右的切换状态管理
 enum FuntionPages {
   Home,
   Store,

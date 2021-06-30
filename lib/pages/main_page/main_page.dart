@@ -2,6 +2,7 @@ import 'package:ddm_client/controllers/main_page/page_state_controller.dart';
 import 'package:ddm_client/pages/main_page/bottom_app_bar_item.dart';
 import 'package:ddm_client/pages/main_page/data_center.dart';
 import 'package:ddm_client/pages/main_page/store_list.dart';
+import 'package:ddm_client/route/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -29,7 +30,7 @@ class MainPage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.create_rounded),
         onPressed: () {
-          // Get.toNamed(Routes.ROUTE, arguments: "path");
+          Get.toNamed(Routes.ROUTE);
         },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

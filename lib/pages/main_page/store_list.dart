@@ -5,6 +5,7 @@ import 'package:ddm_client/pages/main_page/ruler_card.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 
+/// 规则商店，可以获取到各种规则
 class StoreList extends StatelessWidget {
   const StoreList({
     Key? key,

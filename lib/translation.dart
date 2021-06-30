@@ -5,7 +5,7 @@ class TextTranslation extends Translations {
   Map<String, Map<String, String>> get keys => {
         'zh_CN': {
           'DDM': '规则文件管理器',
-          'data center': '规则列表',
+          'data center': '数据中心',
           'template store': '商店',
           'Paste': '粘贴',
         },
